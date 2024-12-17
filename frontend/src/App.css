@@ -41,3 +41,26 @@ ul > li .headerActive{
     transform: rotate(360deg);
   }
 }
+
+/*End of Table*/
+.highlight-header-footer {
+  background-color: #f8f9fa;
+  border: none; 
+}
+
+.highlight-header-footer th,
+.highlight-header-footer td {
+  border: none !important; 
+}
+
+/* Table Borders */
+.table {
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border-bottom: 1px solid #dee2e6; 
+}
+
+/*End of Table*/
