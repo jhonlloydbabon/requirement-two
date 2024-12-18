@@ -1,6 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 export default function Table() {
+  const result = useSelector((state)=>state.companyUser.response);
+  console.log(result);
+  
   return (
     <div className="row">
       <table className="table border border-rounded">
@@ -13,12 +17,12 @@ export default function Table() {
           </tr>
         </thead>
         <tbody style={{height:"100px", overflow:"auto"}}>
-        <tr>
-            <td>Netflix</td>
-            <td style={{ width: "400px" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eius illo iure earum,
-            </td>
-            <td>5</td>
+        {
+          result.map((v,k)=>(
+            <tr>
+            <td>{v.company_name}</td>
+            <td style={{ width: "400px" }}>{v.company_description}</td>
+            <td><img src={v.user_profile} style={{width:"20px"}} /></td>
             <td>
               <div className="progress">
                 <div
@@ -32,63 +36,8 @@ export default function Table() {
               </div>
             </td>
           </tr>
-          <tr>
-            <td>Netflix</td>
-            <td style={{ width: "400px" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eius illo iure earum,
-            </td>
-            <td>5</td>
-            <td>
-              <div className="progress">
-                <div
-                  className="progress-bar"
-                  role="progressbar"
-                  style={{ width: "25%" }}
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Netflix</td>
-            <td style={{ width: "400px" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eius illo iure earum,
-            </td>
-            <td>5</td>
-            <td>
-              <div className="progress">
-                <div
-                  className="progress-bar"
-                  role="progressbar"
-                  style={{ width: "25%" }}
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Netflix</td>
-            <td style={{ width: "400px" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eius illo iure earum,
-            </td>
-            <td>5</td>
-            <td>
-              <div className="progress">
-                <div
-                  className="progress-bar"
-                  role="progressbar"
-                  style={{ width: "25%" }}
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </td>
-          </tr>
+          ))
+        }
         </tbody>
         <tfoot className="highlight-header-footer">
           <tr>
